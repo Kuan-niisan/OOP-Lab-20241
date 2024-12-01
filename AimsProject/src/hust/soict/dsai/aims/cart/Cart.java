@@ -1,6 +1,6 @@
 package hust.soict.dsai.aims.cart;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import hust.soict.dsai.aims.media.Media;
 
@@ -32,6 +32,14 @@ public class Cart {
         }
     }
     
+    public Media searchToRemove(String title) {
+		for (Media media : itemsOrdered) {
+			if (media.getTitle().equals(title)) {
+				return media;
+			}
+		}
+		return null;
+	}
     public void searchByID(int id) {
     	boolean found = false;
     	for (Media media : itemsOrdered) {
@@ -74,6 +82,37 @@ public class Cart {
     	}
     	System.out.println("Total cost:" + totalCost());
     	System.out.println("***************************************************");
+    }
+    
+    public void empty() {
+        if (itemsOrdered.size() == 0) {
+            System.out.println("Nothing to remove!");
+        } else {
+            itemsOrdered.clear();
+            System.out.println("Order created.");
+            System.out.println("Now your current cart will be empty!");
+            System.out.println();
+        }
+    }
+
+
+    public void sortMediaByTitle() {
+        Collections.sort((List<Media>)itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        Iterator<Media> iterator = itemsOrdered.iterator();
+        iterator = itemsOrdered.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
+    }
+    public void sortMediaByCost() {
+        Collections.sort((List<Media>)itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        Iterator<Media> iterator = itemsOrdered.iterator();
+        iterator = itemsOrdered.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
     }
 }
 
