@@ -43,4 +43,7 @@ public abstract class Media {
 		return cost;
 	}
 
+	public boolean isMatch(String title) {
+        return this.getTitle().toLowerCase().contains(title.toLowerCase());
+    }
 }
