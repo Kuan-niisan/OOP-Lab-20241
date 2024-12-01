@@ -29,6 +29,13 @@ public class Store {
             System.out.println(i+1 + ". " + itemsInStore.get(i));
         }
     }
-
+    public Media search(String title) {
+		for (Media media : itemsInStore) {
+			if (media.getTitle().equals(title)) {
+				return media;
+			}
+		}
+		return null;
+	}
 
 }
