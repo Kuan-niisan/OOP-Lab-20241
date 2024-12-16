@@ -5,13 +5,15 @@ public class Disc extends Media {
     private String director;
     private int length;
 
-
+    // Getter method
     public String getDirector() {
 		return director;
 	}
 	public int getLength() {
 		return length;
 	}
+    
+    // Constructor 
     public Disc(String title) {
         super(title);
     }
@@ -27,6 +29,7 @@ public class Disc extends Media {
         this.director = director;
         this.length = length;
     }
+    
     @Override
     public int compareTo(Media other) {
         if (other instanceof Disc) {
