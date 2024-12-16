@@ -2,12 +2,19 @@ package hust.soict.dsai.aims.cart;
 
 import java.util.*;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	
-	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+    public ObservableList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+
 	
 	public void addMedia(Media media) {
         if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
@@ -72,6 +79,15 @@ public class Cart {
             total += media.getCost();
         }
         return total;
+    }
+    
+    public String placeOrder() {
+        if (itemsOrdered.size() == 0) {
+            return "Your cart is empty!";
+        } else {
+            itemsOrdered.clear();
+            return "Order created!\n" + "Now your cart will be empty!";
+        }
     }
     
     public void print() {
