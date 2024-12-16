@@ -1,16 +1,10 @@
 package hust.soict.dsai.aims;
-import java.util.Scanner;
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.store.Store;
+import java.util.*;
 
 import javax.naming.LimitExceededException;
-
-import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.media.Book;
-import hust.soict.dsai.aims.media.CompactDisc;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
-import hust.soict.dsai.aims.media.Disc;
-import hust.soict.dsai.aims.media.Media;
-import hust.soict.dsai.aims.media.Track;
-import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
     private static Store store = new Store();
